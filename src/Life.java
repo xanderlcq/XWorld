@@ -7,7 +7,7 @@ public void setLocation(Location location);
 	public int getAge();
 	public void setAge(int age);
 	public void setColor(Color c);
-	public Color getColor(Color c);
+	public Color getColor();
 	public void goUp();
 	public void goDown();
 	public void goRight();

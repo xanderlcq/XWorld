@@ -10,7 +10,11 @@ public abstract class LifeForm implements Life {
 		this.age = 0;
 		this.alive = true;
 	}
-
+	
+	public boolean isAlive(){
+		return alive;
+	}
+	
 	@Override
 	public void die() {
 		alive = false;
@@ -39,7 +43,7 @@ public abstract class LifeForm implements Life {
 	}
 
 	@Override
-	public Color getColor(Color c) {
+	public Color getColor() {
 		return color;
 	}
 
@@ -61,6 +65,12 @@ public abstract class LifeForm implements Life {
 	@Override
 	public void goLeft() {
 		location.setX(location.getX()-1);
+	}
+
+	@Override
+	public String toString() {
+		return "LifeForm [age=" + age + ", color=" + color + ", alive=" + alive
+				+ ", location=" + location + "]";
 	}
 
 }
