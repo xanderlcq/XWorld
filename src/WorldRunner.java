@@ -12,26 +12,18 @@ public class WorldRunner extends GraphicsProgram {
 
 	public void run() {
 		init();
-		Turtle t = new Turtle(new Location(7, 5));
-		myWorld.getCreatures().add(new Rock(new Location(5, 5)));
-		myWorld.getCreatures().add(t);
+		//myWorld.getCreatures().add(new Rock(new Location(15, 5)));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(3, 5),0));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(5 ,8),4));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(15, 3),3));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(8, 11),7));
 		myWorld.refreshCreatures(myWorldCanvas);
 		while (true) {
-			while (t.getLocation().getX() > 0) {
-				if(myWorld.getCreatureAt(t.getLocation().getX()-1,t.getLocation().getY()) != null){
-					myWorld.getCreatureAt(t.getLocation().getX()-1,t.getLocation().getY()).die();
-				}
-				t.goLeft();
-				myWorld.refreshCreatures(myWorldCanvas);
-				pause(1000);
-
+			for(LifeForm f:myWorld.getCreatures()){
+				f.excecuteRules();
 			}
-			while (t.getLocation().getX() < worldSize - 1) {
-				t.goRight();
-				myWorld.refreshCreatures(myWorldCanvas);
-				pause(100);
-			}
-
+			myWorld.refreshCreatures(myWorldCanvas);
+			pause(100);
 		}
 
 	}

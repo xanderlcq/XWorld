@@ -15,6 +15,9 @@ public abstract class LifeForm implements Life {
 	public void reproduce(){}
 	
 	@Override
+	public void excecuteRules(){}
+	
+	@Override
 	public boolean isAlive(){
 		return alive;
 	}
