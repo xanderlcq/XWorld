@@ -1,6 +1,5 @@
-import acm.graphics.GCanvas;
-import acm.graphics.GObject;
-import acm.program.GraphicsProgram;
+import acm.graphics.*;
+import acm.program.*;
 
 @SuppressWarnings("serial")
 public class WorldRunner extends GraphicsProgram {

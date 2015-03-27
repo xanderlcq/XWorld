@@ -11,6 +11,10 @@ public abstract class LifeForm implements Life {
 		this.alive = true;
 	}
 	
+	@Override
+	public void reproduce(){}
+	
+	@Override
 	public boolean isAlive(){
 		return alive;
 	}

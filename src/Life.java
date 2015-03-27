@@ -12,4 +12,6 @@ public void setLocation(Location location);
 	public void goDown();
 	public void goRight();
 	public void goLeft();
+	public boolean isAlive();
+	public void reproduce();
 }

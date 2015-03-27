@@ -31,6 +31,7 @@ public class GridWorld {
 			}
 		}
 	}
+	
 	public void refreshCreatures(GCanvas c) {
 		drawBlank(c);
 		cleanUp();
