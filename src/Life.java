@@ -25,7 +25,7 @@ public interface Life {
 
 	public boolean isAlive();
 
-	public void reproduce();
+	public void reproduce(GridWorld myworld);
 	
-	public void excecuteRules();
+	public void excecuteRules(GridWorld myWorld);
 }

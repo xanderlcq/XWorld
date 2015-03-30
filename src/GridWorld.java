@@ -9,12 +9,20 @@ public class GridWorld {
 	protected int worldSize;
 	protected List<LifeForm> myCreatures;
 	private int cellSize;
+	protected List<LifeForm> tempCreatures;
 
 	public GridWorld(int worldSize, int cellSize) {
 		this.worldSize = worldSize;
 		this.cellSize = cellSize;
 		myCreatures = new ArrayList<LifeForm>();
+		tempCreatures = new ArrayList<LifeForm>();
+		
 	}
+
+	public List<LifeForm> getTempCreatures() {
+		return tempCreatures;
+	}
+
 
 	public void drawBlank(GCanvas c) {
 		c.removeAll();
@@ -32,9 +40,20 @@ public class GridWorld {
 		}
 	}
 	
+	public boolean isOccupied(Location location){
+		return true;
+		
+	}
+	
 	public void refreshCreatures(GCanvas c) {
 		drawBlank(c);
 		cleanUp();
+		int length = tempCreatures.size();
+		for(int i = 0; i < length;i++){
+			myCreatures.add(tempCreatures.get(0));
+			tempCreatures.remove(0);
+			
+		}
 		for (LifeForm x : myCreatures) {
 			if (x.isAlive()) {
 				GRect r = new GRect(x.getLocation().getX() * cellSize, x
@@ -46,9 +65,9 @@ public class GridWorld {
 		}
 	}
 
-	public LifeForm getCreatureAt(int x, int y) {
+	public LifeForm getCreatureAt(Location location) {
 		for (LifeForm f : myCreatures) {
-			if (f.getLocation().getX() == x && f.getLocation().getY() == y) {
+			if (f.getLocation().getX() == location.getX() && f.getLocation().getY() == location.getY()) {
 				return f;
 			}
 		}

@@ -12,10 +12,10 @@ public abstract class LifeForm implements Life {
 	}
 	
 	@Override
-	public void reproduce(){}
+	public void reproduce(GridWorld myworld){}
 	
 	@Override
-	public void excecuteRules(){}
+	public void excecuteRules(GridWorld myWorld){}
 	
 	@Override
 	public boolean isAlive(){

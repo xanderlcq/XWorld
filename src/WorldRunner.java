@@ -12,18 +12,29 @@ public class WorldRunner extends GraphicsProgram {
 
 	public void run() {
 		init();
-		//myWorld.getCreatures().add(new Rock(new Location(15, 5)));
+		myWorld.getCreatures().add(new Rock(new Location(15, 5)));
+		myWorld.getCreatures().add(new Rock(new Location(4, 7)));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(3, 5),0));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(5 ,8),4));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(15, 3),3));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(8, 11),7));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(5 ,9),4));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(15, 13),3));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(2, 6),2));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(1, 17),1));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(14, 7),6));
+		myWorld.getCreatures().add(new SquareTurtle(new Location(13, 3),7));
+		
+		
+		
 		myWorld.refreshCreatures(myWorldCanvas);
+		pause(1000);
+		//myWorld.getCreatures().get(1).reproduce(myWorld);
+		//myWorld.refreshCreatures(myWorldCanvas);
 		while (true) {
-			for(LifeForm f:myWorld.getCreatures()){
-				f.excecuteRules();
+			for(int i = 0; i < myWorld.getCreatures().size();i++){
+				myWorld.getCreatures().get(i).excecuteRules(myWorld);
 			}
+			
 			myWorld.refreshCreatures(myWorldCanvas);
-			pause(100);
+			pause(1000);
 		}
 
 	}
