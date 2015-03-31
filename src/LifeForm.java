@@ -2,8 +2,8 @@ import java.awt.Color;
 
 public abstract class LifeForm implements Life {
 	protected int age;
-	protected Color color;
 	protected boolean alive;
+	protected Color color;
 	protected Location location;
 	public LifeForm(Location location) {
 		this.location = location;
@@ -12,32 +12,52 @@ public abstract class LifeForm implements Life {
 	}
 	
 	@Override
-	public void reproduce(GridWorld myworld){}
-	
+	public void die() {
+		alive = false;
+	}
+
 	@Override
 	public void excecuteRules(GridWorld myWorld){}
 	
 	@Override
-	public boolean isAlive(){
-		return alive;
+	public int getAge() {
+		return age;
 	}
 	
 	@Override
-	public void die() {
-		alive = false;
+	public Color getColor() {
+		return color;
 	}
-	@Override
-    public void setLocation(Location location){
-    	this.location = location;
-    }
 	@Override
 	public Location getLocation(){
 		return location;
 	}
 	@Override
-	public int getAge() {
-		return age;
+	public void goDown() {
+		location.setY(location.getY()+1);
 	}
+	@Override
+	public void goLeft() {
+		location.setX(location.getX()-1);
+	}
+
+	@Override
+	public void goRight() {
+		location.setX(location.getX()+1);
+	}
+
+	@Override
+	public void goUp() {
+		location.setY(location.getY()-1);
+	}
+
+	@Override
+	public boolean isAlive(){
+		return alive;
+	}
+
+	@Override
+	public void reproduce(GridWorld myworld){}
 
 	@Override
 	public void setAge(int age) {
@@ -50,29 +70,9 @@ public abstract class LifeForm implements Life {
 	}
 
 	@Override
-	public Color getColor() {
-		return color;
-	}
-
-	@Override
-	public void goUp() {
-		location.setY(location.getY()-1);
-	}
-
-	@Override
-	public void goDown() {
-		location.setY(location.getY()+1);
-	}
-
-	@Override
-	public void goRight() {
-		location.setX(location.getX()+1);
-	}
-
-	@Override
-	public void goLeft() {
-		location.setX(location.getX()-1);
-	}
+    public void setLocation(Location location){
+    	this.location = location;
+    }
 
 	@Override
 	public String toString() {
