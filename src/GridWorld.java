@@ -16,13 +16,12 @@ public class GridWorld {
 		this.cellSize = cellSize;
 		myCreatures = new ArrayList<LifeForm>();
 		tempCreatures = new ArrayList<LifeForm>();
-		
+
 	}
 
 	public List<LifeForm> getTempCreatures() {
 		return tempCreatures;
 	}
-
 
 	public void drawBlank(GCanvas c) {
 		c.removeAll();
@@ -31,28 +30,32 @@ public class GridWorld {
 			c.add(new GLine(0, i * cellSize, worldSize * cellSize, i * cellSize));
 		}
 	}
-	private void cleanUp(){
-		for(int i=0;i<myCreatures.size();i++){
-			if(!myCreatures.get(i).isAlive()){
+
+	private void cleanUp() {
+		for (int i = 0; i < myCreatures.size(); i++) {
+			if (!myCreatures.get(i).isAlive()) {
 				myCreatures.remove(i);
 				i--;
 			}
 		}
 	}
-	
-	public boolean isOccupied(Location location){
-		return true;
-		
+
+	public boolean isOccupied(Location location) {
+		if (getCreatureAt(location) == null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
-	
+
 	public void refreshCreatures(GCanvas c) {
 		drawBlank(c);
 		cleanUp();
 		int length = tempCreatures.size();
-		for(int i = 0; i < length;i++){
+		for (int i = 0; i < length; i++) {
 			myCreatures.add(tempCreatures.get(0));
 			tempCreatures.remove(0);
-			
+
 		}
 		for (LifeForm x : myCreatures) {
 			if (x.isAlive()) {
@@ -67,7 +70,8 @@ public class GridWorld {
 
 	public LifeForm getCreatureAt(Location location) {
 		for (LifeForm f : myCreatures) {
-			if (f.getLocation().getX() == location.getX() && f.getLocation().getY() == location.getY()) {
+			if (f.getLocation().getX() == location.getX()
+					&& f.getLocation().getY() == location.getY()) {
 				return f;
 			}
 		}
