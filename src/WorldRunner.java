@@ -14,13 +14,13 @@ public class WorldRunner extends GraphicsProgram {
 		init();
 		myWorld.getCreatures().add(new Rock(new Location(15, 5)));
 		myWorld.getCreatures().add(new Rock(new Location(4, 7)));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(3, 5),0));
+		//myWorld.getCreatures().add(new SquareTurtle(new Location(3, 5),0));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(5 ,9),4));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(15, 13),3));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(2, 6),2));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(1, 17),1));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(14, 7),6));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(13, 3),7));
+		//myWorld.getCreatures().add(new SquareTurtle(new Location(15, 13),3));
+		//myWorld.getCreatures().add(new SquareTurtle(new Location(2, 6),2));
+		//myWorld.getCreatures().add(new SquareTurtle(new Location(1, 17),1));
+		//myWorld.getCreatures().add(new SquareTurtle(new Location(14, 7),6));
+		//myWorld.getCreatures().add(new SquareTurtle(new Location(13, 3),7));
 		
 		
 		

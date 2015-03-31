@@ -120,14 +120,21 @@ public class SquareTurtle extends LifeForm {
 
 	public void reproduce(GridWorld myWorld) {
 		int temp;
-		if (Math.random() * 10 > 5) {
+		if (Math.random() > 0.5) {
 			temp = 1;
 		} else {
 			temp = -1;
 		}
-		Location newLocation = new Location(temp
-				* (int) (location.getX() + Math.random() * 2), temp
-				* (int) (location.getY() + Math.random() * 2));
+		Location newLocation = new Location(
+				(int) (location.getX() + temp*Math.random() * 5),  (int) (location.getY() + temp
+						*Math.random() * 5));
+		
+		while(myWorld.isOccupied(newLocation)||!myWorld.isInside(newLocation)){
+			newLocation = new Location(temp
+					* (int) (location.getX() + Math.random() * 2), temp
+					* (int) (location.getY() + Math.random() * 2));
+			
+		}
 		myWorld.getTempCreatures().add(
 				new SquareTurtle(newLocation, (int) (Math.random() * 7)));
 	}
