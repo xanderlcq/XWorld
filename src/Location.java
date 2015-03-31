@@ -20,7 +20,7 @@ public class Location {
 	}
 	/**
 	 * Set the X coordinate of the location.
-	 * @param The new X coordinate of the location.
+	 * @param x The new X coordinate of the location.
 	 */
 	public void setX(int x) {
 		this.x = x;
@@ -34,7 +34,7 @@ public class Location {
 	}
 	/**
 	 * Set the Y coordinate of the location.
-	 * @param The new Y coordinate of the location.
+	 * @param y The new Y coordinate of the location.
 	 */
 	public void setY(int y) {
 		this.y = y;
