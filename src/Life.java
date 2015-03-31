@@ -2,7 +2,7 @@ import java.awt.Color;
 
 public interface Life {
 	public void die();
-
+	
 	public Location getLocation();
 
 	public void setLocation(Location location);
