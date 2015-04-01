@@ -1,3 +1,8 @@
+/**
+ * This class is for the location object for the world.
+ * @author Xander Li
+ *
+ */
 public class Location {
 	
 	protected int x;

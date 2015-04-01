@@ -94,7 +94,31 @@ public class GridWorld {
 		}
 			
 	}
-	
+	/**
+	 * Get the number of neighbors around this location.
+	 * @param location The location you want to check
+	 * @return Return the number of creatures around this location.
+	 */
+	public int getNeighbors(Location location){
+		int count = 0;
+		if(getCreatureAt(new Location(location.getX()-1,location.getY()-1)) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX(),location.getY()-1)) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX()+1,location.getY()-1)) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX()-1,location.getY())) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX()+1,location.getY())) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX()-1,location.getY()+1)) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX(),location.getY()+1)) != null)
+			count++;
+		if(getCreatureAt(new Location(location.getX()+1,location.getY()+1)) != null)
+				count++;
+		return count;
+	}
 	/**
 	 * Check if a location is occupied or not.
 	 * @param location The location you want to check.

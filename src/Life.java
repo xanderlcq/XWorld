@@ -1,5 +1,9 @@
 import java.awt.Color;
-
+/**
+ * This is an interface that contains all methods that a creature has.
+ * @author Xander Li
+ *
+ */
 public interface Life {
 	/**
 	 * Set the 'alive' to false.
