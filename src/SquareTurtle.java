@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 public class SquareTurtle extends LifeForm {
-	public int state;
+	private int state;
 
 	public SquareTurtle(Location location, int state) {
 		super(location);

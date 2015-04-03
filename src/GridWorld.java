@@ -87,7 +87,7 @@ public class GridWorld {
 	 * @return Return true if the location is inside of the World, false if it's not
 	 */
 	public boolean isInside(Location location){
-		if(location.getX()>worldSize ||location.getX()<0||location.getY() >worldSize||location.getY() < 0){
+		if(location.getX()>=worldSize ||location.getX()<0||location.getY() >=worldSize||location.getY() < 0){
 			return false;
 		}else{
 			return true;
