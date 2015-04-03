@@ -2,6 +2,7 @@ import java.awt.Color;
 
 public abstract class LifeForm implements Life {
 	protected int age;
+	protected int ID;
 	protected boolean alive;
 	protected Color color;
 	protected Location location;
@@ -10,7 +11,9 @@ public abstract class LifeForm implements Life {
 		this.age = 0;
 		this.alive = true;
 	}
-	
+	public int getID(){
+		return ID;
+	}
 	@Override
 	public void die() {
 		alive = false;

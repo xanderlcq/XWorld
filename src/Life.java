@@ -5,6 +5,7 @@ import java.awt.Color;
  *
  */
 public interface Life {
+	
 	/**
 	 * Set the 'alive' to false.
 	 */
