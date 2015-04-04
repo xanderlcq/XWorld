@@ -13,16 +13,24 @@ public class SquareTurtle extends LifeForm {
 	@Override
 	public void excecuteRules(GridWorld myWorld) {
 		if (state == 0) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX(), getLocation()
-									.getY() + 1)).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX(),
+					getLocation().getY() + 1)) != null) {
+				if (myWorld.getCreatureAt(// wait for shark to pass
 						new Location(getLocation().getX(),
-								getLocation().getY() + 1)).die();
+								getLocation().getY() + 1)).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(// eat the jelly fish
+						new Location(getLocation().getX(),
+								getLocation().getY() + 1)).getID() == 4) {
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX(), getLocation()
+									.getY() + 1)).die();
+				}
 				reproduce(myWorld);
 			}
 			goDown();
@@ -31,16 +39,27 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 1) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX(), getLocation()
-									.getY() + 1)).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX(),
+					getLocation().getY() + 1)) != null) {
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX(),
-								getLocation().getY() + 1)).die();
+								getLocation().getY() + 1)).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(getLocation().getX(),
+								getLocation().getY() + 1)).getID() == 4) {
+
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX(), getLocation()
+									.getY() + 1)).die();
+
+				}
+
 				reproduce(myWorld);
 			}
 			goDown();
@@ -49,16 +68,27 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 2) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX() + 1,
-									getLocation().getY())).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX() + 1,
+					getLocation().getY())) != null) {
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() + 1, getLocation()
-								.getY())).die();
+								.getY())).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(getLocation().getX() + 1, getLocation()
+								.getY())).getID() == 4) {
+
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX() + 1,
+									getLocation().getY())).die();
+
+				}
+
 				reproduce(myWorld);
 			}
 			goRight();
@@ -67,16 +97,27 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 3) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX() + 1,
-									getLocation().getY())).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX() + 1,
+					getLocation().getY())) != null) {
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() + 1, getLocation()
-								.getY())).die();
+								.getY())).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(getLocation().getX() + 1, getLocation()
+								.getY())).getID() == 4) {
+
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX() + 1,
+									getLocation().getY())).die();
+
+				}
+
 				reproduce(myWorld);
 			}
 			goRight();
@@ -85,16 +126,27 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 4) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX(), getLocation()
-									.getY() - 1)).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX(),
+					getLocation().getY() - 1)) != null) {
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX(),
-								getLocation().getY() - 1)).die();
+								getLocation().getY() - 1)).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(getLocation().getX(),
+								getLocation().getY() - 1)).getID() == 2) {
+
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX(), getLocation()
+									.getY() - 1)).die();
+
+				}
+
 				reproduce(myWorld);
 			}
 			goUp();
@@ -103,16 +155,27 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 5) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX(), getLocation()
-									.getY() - 1)).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX(),
+					getLocation().getY() - 1)) != null) {
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX(),
-								getLocation().getY() - 1)).die();
+								getLocation().getY() - 1)).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(getLocation().getX(),
+								getLocation().getY() - 1)).getID() == 4) {
+
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX(), getLocation()
+									.getY() - 1)).die();
+
+				}
+
 				reproduce(myWorld);
 			}
 			goUp();
@@ -121,16 +184,27 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 6) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX() - 1,
+					getLocation().getY())) != null) {
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() - 1, getLocation()
-								.getY())).die();
+								.getY())).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(getLocation().getX() - 1, getLocation()
+								.getY())).getID() == 4) {
+
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX() - 1,
+									getLocation().getY())).die();
+
+				}
+
 				reproduce(myWorld);
 			}
 			goLeft();
@@ -139,16 +213,25 @@ public class SquareTurtle extends LifeForm {
 			return;
 		}
 		if (state == 7) {
-			if (myWorld
-					.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 4
-					|| myWorld.getCreatureAt(
-							new Location(getLocation().getX() - 1,
-									getLocation().getY())).getID() == 1) {
-				myWorld.getCreatureAt(
+			if (myWorld.getNeighbors(location) > 2) {
+				die();
+				return;
+			}
+			if (myWorld.getCreatureAt(new Location(getLocation().getX() - 1,
+					getLocation().getY())) != null) {
+				if (myWorld.getCreatureAt(// wait for shark to pass
 						new Location(getLocation().getX() - 1, getLocation()
-								.getY())).die();
+								.getY())).getID() == 2) {
+					return;
+				}
+				if (myWorld.getCreatureAt(// eat the jelly fish
+						new Location(getLocation().getX() - 1, getLocation()
+								.getY())).getID() == 4) {
+					myWorld.getCreatureAt(
+							new Location(getLocation().getX() - 1,
+									getLocation().getY())).die();
+				}
+
 				reproduce(myWorld);
 			}
 			goLeft();
@@ -159,6 +242,7 @@ public class SquareTurtle extends LifeForm {
 
 	}
 
+	@Override
 	public void reproduce(GridWorld myWorld) {
 		int temp;
 		if (Math.random() > 0.5) {
@@ -169,16 +253,22 @@ public class SquareTurtle extends LifeForm {
 		Location newLocation = new Location((int) (location.getX() + temp
 				* Math.random() * 5), (int) (location.getY() + temp
 				* Math.random() * 5));
-
+		int count = 0;
 		while (myWorld.isOccupied(newLocation)
 				|| !myWorld.isInside(newLocation)) {
+			if (count == 5)
+				break;
+			count++;
+
 			newLocation = new Location(temp
-					* (int) (location.getX() + Math.random() * 2), temp
-					* (int) (location.getY() + Math.random() * 2));
+					* (int) (location.getX() + Math.random() * 10), temp
+					* (int) (location.getY() + Math.random() * 10));
 
 		}
-		myWorld.getTempCreatures().add(
-				new SquareTurtle(newLocation, (int) (Math.random() * 7)));
+		if (count < 5) {
+			myWorld.getTempCreatures().add(
+					new SquareTurtle(newLocation, (int) (Math.random() * 7)));
+		}
 	}
 
 }
