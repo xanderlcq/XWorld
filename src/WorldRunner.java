@@ -15,13 +15,13 @@ public class WorldRunner extends GraphicsProgram {
 		System.out.println(myWorld.isInside(new Location(20,20)));
 		
 		myWorld.getCreatures().add(new JellyFish(new Location(18, 5)));
-		/*myWorld.getCreatures().add(new Rock(new Location(15, 5)));
+		myWorld.getCreatures().add(new Rock(new Location(15, 5)));
 		myWorld.getCreatures().add(new Rock(new Location(4, 7)));
 		myWorld.getCreatures().add(new JellyFish(new Location(3, 5)));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(5 ,9),4));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(15, 13),3));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(2, 6),2));
-		myWorld.getCreatures().add(new SquareTurtle(new Location(1, 17),1));*/
+		myWorld.getCreatures().add(new SquareTurtle(new Location(1, 17),1));
 		//myWorld.getCreatures().add(new SquareTurtle(new Location(14, 7),6));
 		//myWorld.getCreatures().add(new SquareTurtle(new Location(13, 3),7));
 		
@@ -37,7 +37,8 @@ public class WorldRunner extends GraphicsProgram {
 			}
 			
 			myWorld.refreshCreatures(myWorldCanvas);
-			pause(10);
+			System.out.println(myWorld.getStatus());
+			pause(5);
 		}
 
 	}

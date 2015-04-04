@@ -6,14 +6,17 @@ public class JellyFish extends LifeForm {
 
 	public JellyFish(Location location) {
 		super(location);
-		ID = 3;
+		ID = 4;
 		color = Color.RED;
 		state = 0;
 		Hstate = 0;
 	}
+
+
+
 	@Override
-	public void excecuteRules(GridWorld myWorld){
-	
+	public void excecuteRules(GridWorld myWorld) {
+
 		if (state == 0) {
 			if (myWorld.isInside(new Location(location.getX(),
 					location.getY() - 1))) {
@@ -25,33 +28,33 @@ public class JellyFish extends LifeForm {
 				return;
 			}
 		}
-		if (state == 1) {//going down
+		if (state == 1) {// going down
 			if (myWorld.isInside(new Location(location.getX(),
-					location.getY()+1))) {//check bottom
+					location.getY() + 1))) {// check bottom
 				goDown();
 				return;
-			} else {//if reach bot
-				
+			} else {// if reach bot
+
 				if (Hstate == 0) {
 					if (myWorld.isInside(new Location(location.getX() + 1,
-							location.getY()))) {//check right
+							location.getY()))) {// check right
 						goRight();
 						state = 0;
 						return;
-					}else{
+					} else {
 						Hstate = 1;
 						state = 0;
 						goLeft();
-					
+						return;
 					}
 				}
-				if(Hstate == 1){
+				if (Hstate == 1) {
 					if (myWorld.isInside(new Location(location.getX() - 1,
-							location.getY()))) {//check right
+							location.getY()))) {// check right
 						goLeft();
 						state = 0;
 						return;
-					}else{
+					} else {
 						Hstate = 0;
 						state = 0;
 						goRight();

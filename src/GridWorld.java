@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,25 @@ public class GridWorld {
 		tempCreatures = new ArrayList<LifeForm>();
 
 	}
-	
+	public String getStatus(){
+		String str;
+		int squareTurtle = 0;
+		int shark= 0;
+		int sharkBoat= 0;
+		int jellyFish= 0;
+		for(LifeForm x:myCreatures){
+			if(x.getID() == 1)
+				squareTurtle++;
+			if(x.getID() == 2)
+				shark++;
+			if(x.getID() == 3)
+				sharkBoat++;
+			if(x.getID() == 4)
+				jellyFish ++;
+		}
+		str = "There are " +squareTurtle+" Turtle, "+shark+" sharks, "+jellyFish+" jelly fish, "+sharkBoat+" shark boats.";
+		return str;
+	}
 	private void cleanUp() {
 		for (int i = 0; i < myCreatures.size(); i++) {
 			if (!myCreatures.get(i).isAlive()) {
