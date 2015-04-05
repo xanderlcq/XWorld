@@ -17,17 +17,17 @@ public class WorldRunner extends GraphicsProgram {
 		init();
 		System.out.println(myWorld.isInside(new Location(20, 20)));
 
-		myWorld.getCreatures().add(new JellyFish(new Location(18, 5)));
-		// myWorld.getCreatures().add(new Rock(new Location(15, 5)));
-		// myWorld.getCreatures().add(new Rock(new Location(4, 7)));
-		myWorld.getCreatures().add(new JellyFish(new Location(3, 5)));
+		/*myWorld.getCreatures().add(new JellyFish(new Location(18, 5)));
+		//myWorld.getCreatures().add(new Rock(new Location(15, 5)));
+	//	myWorld.getCreatures().add(new Rock(new Location(4, 7)));
+		myWorld.getCreatures().add(new Shark(new Location(0, 0),0,true,true,true));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(5, 9), 4));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(15, 13), 3));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(2, 6), 2));
 		myWorld.getCreatures().add(new SquareTurtle(new Location(1, 17), 1));
 		// myWorld.getCreatures().add(new SquareTurtle(new Location(14, 7),6));
 		// myWorld.getCreatures().add(new SquareTurtle(new Location(13, 3),7));
-
+*/
 		myWorld.refreshCreatures(myWorldCanvas);
 		pause(1000);
 		// myWorld.getCreatures().get(1).reproduce(myWorld);
@@ -45,14 +45,19 @@ public class WorldRunner extends GraphicsProgram {
 			pause(50);
 			while (pause) {
 				pause(10);
-				if(!pause)
+				if (!pause)
 					break;
 			}
 		}
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		pause = !pause;
+		//pause = !pause;
+		int x = e.getX()/cellSize -1;
+		int y = e.getY()/cellSize;
+		if(x<20 &&y<20){
+			myWorld.getCreatures().add(new SquareTurtle(new Location(x,y),3));
+		}
 	}
 
 	public void init() {
