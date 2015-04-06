@@ -36,13 +36,15 @@ public class Shark extends LifeForm {
 											getLocation().getY())).die();
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX() + 1,
-										getLocation().getY())).getID() == 1)
+										getLocation().getY())).getID() == 1){
 							myWorld.getCreatureAt(
 									new Location(getLocation().getX() + 1,
 											getLocation().getY())).die();
+							reproduceJelly(myWorld);
+						}
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX() + 1,
-										getLocation().getY())).getColor() == color.GRAY) {
+										getLocation().getY())).getID() == 3) {
 							die();
 							return;
 						}
@@ -71,13 +73,15 @@ public class Shark extends LifeForm {
 											getLocation().getY())).die();
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX() - 1,
-										getLocation().getY())).getID() == 1)
+										getLocation().getY())).getID() == 1){
 							myWorld.getCreatureAt(
 									new Location(getLocation().getX() - 1,
 											getLocation().getY())).die();
+									reproduceJelly(myWorld);
+					}
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX() - 1,
-										getLocation().getY())).getColor() == color.GRAY){
+										getLocation().getY())).getID() == 3){
 							die();
 							return;
 						}
@@ -103,6 +107,8 @@ public class Shark extends LifeForm {
 		}
 		if (state == 1) {
 			if (forward) {
+				if (myWorld.isInside(new Location(location.getX(), location
+						.getY()+1))) {
 				if (myWorld.getCreatureAt(new Location(getLocation().getX(),
 						getLocation().getY() + 1)) != null) {
 					if (myWorld.getCreatureAt(
@@ -113,13 +119,15 @@ public class Shark extends LifeForm {
 										getLocation().getY() + 1)).die();
 					if (myWorld.getCreatureAt(
 							new Location(getLocation().getX(),
-									getLocation().getY()+1)).getID() == 1)
+									getLocation().getY()+1)).getID() == 1){
 						myWorld.getCreatureAt(
 								new Location(getLocation().getX(),
 										getLocation().getY()+1)).die();
+							reproduceJelly(myWorld);
+					}
 					if (myWorld.getCreatureAt(
 							new Location(getLocation().getX(), getLocation()
-									.getY() + 1)).getColor() == color.GRAY){
+									.getY() + 1)).getID() == 3){
 						die();
 						return;
 					}
@@ -130,7 +138,13 @@ public class Shark extends LifeForm {
 				}
 				goDown();
 				state = 0;
+				}else{
+					forward=!forward;
+					return;
+				}
 			} else {
+				if (myWorld.isInside(new Location(location.getX(), location
+						.getY()-1))) {
 				if (myWorld.getCreatureAt(new Location(getLocation().getX(),
 						getLocation().getY() - 1)) != null) {
 					if (myWorld.getCreatureAt(
@@ -141,13 +155,15 @@ public class Shark extends LifeForm {
 										getLocation().getY() - 1)).die();
 					if (myWorld.getCreatureAt(
 							new Location(getLocation().getX(),
-									getLocation().getY()-1)).getID() == 1)
+									getLocation().getY()-1)).getID() == 1){
 						myWorld.getCreatureAt(
 								new Location(getLocation().getX(),
 										getLocation().getY()-1)).die();
+						reproduceJelly(myWorld);
+					}
 					if (myWorld.getCreatureAt(
 							new Location(getLocation().getX(), getLocation()
-									.getY() - 1)).getColor() == color.GRAY) {
+									.getY() - 1)).getID()==3) {
 						die();
 						return;
 					}
@@ -158,6 +174,10 @@ public class Shark extends LifeForm {
 				}
 				goUp();
 				state = 0;
+				}else{
+					forward=!forward;
+					return;
+				}
 			}
 		}
 	}
@@ -176,13 +196,15 @@ public class Shark extends LifeForm {
 											getLocation().getY()+1)).die();
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX(),
-										getLocation().getY()+1)).getID() == 1)
+										getLocation().getY()+1)).getID() == 1){
 							myWorld.getCreatureAt(
 									new Location(getLocation().getX(),
 											getLocation().getY()+1)).die();
+							reproduceJelly(myWorld);
+						}
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX(),
-										getLocation().getY()+1)).getColor() == color.GRAY) {
+										getLocation().getY()+1)).getID() == 3) {
 							die();
 							return;
 						}
@@ -211,13 +233,15 @@ public class Shark extends LifeForm {
 											getLocation().getY()-1)).die();
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX(),
-										getLocation().getY()-1)).getID() == 1)
+										getLocation().getY()-1)).getID() == 1){
 							myWorld.getCreatureAt(
 									new Location(getLocation().getX(),
 											getLocation().getY()-1)).die();
+							reproduceJelly(myWorld);
+						}
 						if (myWorld.getCreatureAt(
 								new Location(getLocation().getX(),
-										getLocation().getY()-1)).getColor() == color.GRAY){
+										getLocation().getY()-1)).getID() == 3){
 							die();
 							return;
 						}
@@ -242,6 +266,8 @@ public class Shark extends LifeForm {
 		}
 		if (state == 1) {
 			if (forward) {
+				if (myWorld.isInside(new Location(location.getX()+1, location
+						.getY()))) {
 				if (myWorld.getCreatureAt(new Location(getLocation().getX()+1,
 						getLocation().getY())) != null) {
 					if (myWorld.getCreatureAt(
@@ -258,7 +284,7 @@ public class Shark extends LifeForm {
 										getLocation().getY())).die();
 					if (myWorld.getCreatureAt(
 							new Location(getLocation().getX()+1, getLocation()
-									.getY())).getColor() == color.GRAY){
+									.getY())).getID() == 3){
 						die();
 						return;
 					}
@@ -269,7 +295,13 @@ public class Shark extends LifeForm {
 				}
 				goRight();
 				state = 0;
+				}else{
+					forward=!forward;
+					return;
+				}
 			} else {
+				if (myWorld.isInside(new Location(location.getX()-1, location
+						.getY()))) {
 				if (myWorld.getCreatureAt(new Location(getLocation().getX()-1,
 						getLocation().getY())) != null) {
 					if (myWorld.getCreatureAt(
@@ -286,7 +318,7 @@ public class Shark extends LifeForm {
 										getLocation().getY())).die();
 					if (myWorld.getCreatureAt(
 							new Location(getLocation().getX()-1, getLocation()
-									.getY())).getColor() == color.GRAY) {
+									.getY())).getID() == 3) {
 						die();
 						return;
 					}
@@ -297,15 +329,70 @@ public class Shark extends LifeForm {
 				}
 				goLeft();
 				state = 0;
+				}else{
+					forward=!forward;
+					return;
+				}
 			}
 		}
 		}
 	
 	public void reproduce(GridWorld myWorld) {
 		boolean way = rgen.nextBoolean();
-		myWorld.getCreatures().add(
-				new Shark(new Location(0, 0), 0, true, way, true));
+		int temp;
+		if (Math.random() > 0.5) {
+			temp = 1;
+		} else {
+			temp = -1;
+		}
+		Location newLocation = new Location((int) (location.getX() + temp
+				* Math.random() * 5), (int) (location.getY() + temp
+				* Math.random() * 5));
+		int count = 0;
+		while (myWorld.isOccupied(newLocation)
+				|| !myWorld.isInside(newLocation)) {
+			if (count == 5)
+				break;
+			count++;
+			newLocation = new Location(temp
+					* (int) (location.getX() + Math.random() * 10), temp
+					* (int) (location.getY() + Math.random() * 10));
+		}
+		if (count < 5) {
+			myWorld.getTempCreatures().add(
+					new Shark(newLocation,0, true, way, true));
+		}
 	}
+	
+	public void reproduceJelly(GridWorld myWorld){
+		int temp;
+		if (Math.random() > 0.5) {
+			temp = 1;
+		} else {
+			temp = -1;
+		}
+		Location newLocation = new Location((int) (location.getX() + temp
+				* Math.random() * 5), (int) (location.getY() + temp
+				* Math.random() * 5));
+		int count = 0;
+		while (myWorld.isOccupied(newLocation)
+				|| !myWorld.isInside(newLocation)) {
+			if (count == 5)
+				break;
+			count++;
+			newLocation = new Location(temp
+					* (int) (location.getX() + Math.random() * 10), temp
+					* (int) (location.getY() + Math.random() * 10));
+		}
+		if (count < 5) {
+			myWorld.getTempCreatures().add(
+					new JellyFish(newLocation));
+		}
+	}
+	
+	
+	
 	/* private instance variable -- Random Generator */
+		
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 }

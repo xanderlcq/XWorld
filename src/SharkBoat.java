@@ -1,6 +1,5 @@
 public class SharkBoat extends LifeForm {
 	public int state;
-
 	public SharkBoat(Location location, GridWorld myWorld) {
 		super(location);
 		color = color.BLUE;
@@ -10,11 +9,9 @@ public class SharkBoat extends LifeForm {
 		ID = 3;
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	public void excecuteRules(GridWorld myWorld) {
 		int startingX = location.getX();
-
 		if (state >= 0 && state < myWorld.getWorldSize() - 1) {
 			if (myWorld.getCreatureAt(new Location(location.getX() + 1,
 					location.getY())) != null) {
@@ -24,7 +21,16 @@ public class SharkBoat extends LifeForm {
 					myWorld.getCreatureAt(
 							new Location(location.getX() + 1, location.getY()))
 							.die();
-				} else {
+				} 
+				if (myWorld.getCreatureAt(
+						new Location(location.getX() + 1, location.getY()))
+						.getID() == 4) {
+				return;				}
+				if (myWorld.getCreatureAt(
+						new Location(location.getX() + 1, location.getY()))
+						.getID() == 1) {
+					return;
+				}else {
 					return;
 				}
 			}
@@ -40,7 +46,17 @@ public class SharkBoat extends LifeForm {
 					myWorld.getCreatureAt(
 							new Location(location.getX() - 1, location.getY()))
 							.die();
-				} else {
+				}
+				if (myWorld.getCreatureAt(
+						new Location(location.getX() - 1, location.getY()))
+						.getID() == 4) {
+					return;
+				}
+				if (myWorld.getCreatureAt(
+						new Location(location.getX() - 1, location.getY()))
+						.getID() == 1) {
+					return;
+				}else {
 					return;
 				}
 			}
@@ -51,8 +67,6 @@ public class SharkBoat extends LifeForm {
 			state = 0;
 		}
 	}
-
 	public void reproduce(GridWorld myWorld) {
-
 	}
 }

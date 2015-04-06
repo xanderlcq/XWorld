@@ -31,16 +31,14 @@ public class SquareTurtle extends LifeForm {
 							new Location(getLocation().getX(), getLocation()
 									.getY() + 1)).die();
 				}
-				if (myWorld.getCreatureAt(// wait for shark to pass
+				if (myWorld.getCreatureAt(// wait for boat to pass
 						new Location(getLocation().getX(),
 								getLocation().getY() + 1)).getID() == 3) {
-					goDown();
-					state++;
 					return;// wait for shark boat to pass
 				}
-				reproduce(myWorld);
+				reproduce(myWorld);//if it's a turtle
 			}
-			goDown();
+			goDown();//if it's empty
 			state++;
 
 			return;
@@ -60,8 +58,6 @@ public class SquareTurtle extends LifeForm {
 				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX(),
 								getLocation().getY() + 1)).getID() == 3) {
-					goDown();
-					state++;
 					return;
 				}
 				if (myWorld.getCreatureAt(
@@ -96,8 +92,6 @@ public class SquareTurtle extends LifeForm {
 				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() + 1, getLocation()
 								.getY())).getID() == 3) {
-					goRight();
-					state++;
 					return;
 				}
 				if (myWorld.getCreatureAt(
@@ -132,8 +126,6 @@ public class SquareTurtle extends LifeForm {
 				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() + 1, getLocation()
 								.getY())).getID() == 3) {
-					goRight();
-					state++;
 					return;
 				}
 				if (myWorld.getCreatureAt(
@@ -168,8 +160,6 @@ public class SquareTurtle extends LifeForm {
 				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX(),
 								getLocation().getY() - 1)).getID() == 3) {
-					goUp();
-					state++;
 					return;
 				}
 				if (myWorld.getCreatureAt(
@@ -204,8 +194,6 @@ public class SquareTurtle extends LifeForm {
 				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX(),
 								getLocation().getY() - 1)).getID() == 3) {
-					goUp();
-					state++;
 					return;
 				}
 				if (myWorld.getCreatureAt(
@@ -240,8 +228,6 @@ public class SquareTurtle extends LifeForm {
 				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() - 1, getLocation()
 								.getY())).getID() == 3) {
-					goLeft();
-					state++;
 					return;
 				}
 				if (myWorld.getCreatureAt(
@@ -273,11 +259,10 @@ public class SquareTurtle extends LifeForm {
 								.getY())).getID() == 2) {
 					return;
 				}
-				if (myWorld.getCreatureAt(// wait for shark to pass
+				if (myWorld.getCreatureAt(
 						new Location(getLocation().getX() - 1, getLocation()
 								.getY())).getID() == 3) {
-					goLeft();
-					state++;
+
 					return;
 				}
 				if (myWorld.getCreatureAt(// eat the jelly fish

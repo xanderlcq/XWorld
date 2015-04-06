@@ -81,7 +81,7 @@ public class WorldRunner extends GraphicsProgram {
 						new SharkBoat(new Location(x, y),myWorld));
 			if (mouseState == 3)
 				myWorld.getCreatures().add(
-						new JellyFish(new Location(x, y)));
+						new JellyFish(new Location(x+1, y+1)));
 		}
 	}
 
